@@ -4,9 +4,9 @@ import java.util.Random;
 
 public class InsertionSort {
 
-    public static void InsertionSort(int[] array) {
+    public static void sort(int[] array) {
 
-        int i = 0, j;
+        int i, j;
         for (i = 1; i < array.length; i++) {
             int key = array[i];
 
@@ -31,7 +31,8 @@ public class InsertionSort {
             array[i] = rd.nextInt(bound);
         }
 
-        InsertionSort(array);
+        Mergesort.print(array);
+        sort(array);
 
         for (int i = 0; i < array.length; i++) {
             if (i < array.length - 1)

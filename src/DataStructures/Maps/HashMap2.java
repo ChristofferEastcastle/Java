@@ -1,4 +1,4 @@
-package DataStructures.HashMap;
+package DataStructures.Maps;
 
 // The following code is a series of SortingAlgos.test that were written in the order you'll read them. After
 // each SortingAlgos.test was written it was run against the DataStructures.DataStructures.HashMap and the implementation was updated if it

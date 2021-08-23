@@ -1,6 +1,6 @@
-package HashMapTests;
+package DataStructures;
 
-import DataStructures.HashMap.HashMap2;
+import DataStructures.Maps.HashMap2;
 import org.junit.jupiter.api.Test;
 
 import java.util.Random;

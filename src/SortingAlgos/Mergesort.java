@@ -6,7 +6,7 @@ public class Mergesort {
         sort(array, 0, array.length - 1);
     }
 
-    private static void sort(int[] array, int left, int right){
+    private static void sort(int[] array, int left, int right) {
         if (left < right) {
 
             int mid = left + (right - left) / 2;
@@ -18,13 +18,13 @@ public class Mergesort {
         }
     }
 
-    private static void merge(int[] array, int left, int mid, int right){
+    private static void merge(int[] array, int left, int mid, int right) {
 
         int n1 = mid - left + 1;
         int n2 = right - mid;
 
-        int L[] = new int[n1];
-        int R[] = new int[n2];
+        int[] L = new int[n1];
+        int[] R = new int[n2];
 
         for (int i = 0; i < n1; ++i) L[i] = array[left + i];
 
@@ -35,8 +35,8 @@ public class Mergesort {
 
         k = left;
 
-        while (i < n1 && j < n2){
-            if (L[i] < R[j]){
+        while (i < n1 && j < n2) {
+            if (L[i] < R[j]) {
                 array[k] = L[i];
                 i++;
             } else {
@@ -46,13 +46,13 @@ public class Mergesort {
             k++;
         }
 
-        while (i < n1){
+        while (i < n1) {
             array[k] = L[i];
             i++;
             k++;
         }
 
-        while (j < n2){
+        while (j < n2) {
             array[k] = R[j];
             j++;
             k++;

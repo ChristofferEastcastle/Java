@@ -1,10 +1,10 @@
-package HashMapTests;// The following code is a series of SortingAlgos.test that were written in the order you'll read them. After
+package DataStructures;// The following code is a series of SortingAlgos.test that were written in the order you'll read them. After
 // each SortingAlgos.test was written it was run against the DataStructures.DataStructures.HashMap and the implementation was updated if it
 // failed. The DataStructures.DataStructures.HashMap code is the final implementation that was built naively to pass each SortingAlgos.test.
 
 // The Tests:
 
-import DataStructures.HashMap.HashMap;
+import DataStructures.Maps.HashMap;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
