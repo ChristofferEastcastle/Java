@@ -3,6 +3,8 @@ package SortingAlgos;
 
 import org.junit.Test;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Random;
 
 public class SpeedComparison {
@@ -30,17 +32,24 @@ public class SpeedComparison {
     @Test
     public void testSpeedWithCustomNumbersAndBound() {
         double divider = 1000, startTime, endTime;
-        int[] array1 = createArray(400_000_000, 25_500_000);
-        /**int[] array2 = array1.clone();
+        int[] array1 = createArray(1_000_900_000, 250_500);
+        /**
+        int[] array2 = array1.clone();
         int[] array3 = array1.clone();
         int[] array4 = array1.clone();
 **/
+        startTime = System.currentTimeMillis();
+        Arrays.sort(array1);
+        endTime = System.currentTimeMillis();
+        System.out.printf("ArraySort: %.3fs | isSorted = %s\n", (endTime - startTime) / divider, isSorted(array1));
+
+
+        /**
         startTime = System.currentTimeMillis();
         Mergesort.sort(array1);
         endTime = System.currentTimeMillis();
         System.out.printf("MergeSort: %.3fs | isSorted = %s\n", (endTime - startTime) / divider, isSorted(array1));
 
-        /**
         startTime = System.currentTimeMillis();
         InsertionSort.sort(array1);
         endTime = System.currentTimeMillis();
