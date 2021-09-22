@@ -7,8 +7,8 @@ import java.util.Random;
 public class SpeedComparison {
 
 
-    public int[] createArray(int size, int bound){
-        int[] array = new int[size];
+    public Integer[] createArray(int size, int bound){
+        Integer[] array = new Integer[size];
         Random rand = new Random();
         for (int i = 0; i < size; i++) {
             array[i] = rand.nextInt(bound);
@@ -17,11 +17,11 @@ public class SpeedComparison {
         return array;
     }
 
-    public boolean isSorted(int[] array) {
+    private <T extends Comparable<T>>  boolean isSorted(T[] array) {
 
         for (int i = 1; i < array.length; i++) {
 
-            if (array[i - 1] > array[i]) return false;
+            if (array[i - 1].compareTo(array[i]) > 0) return false;
         }
         return true;
     }
@@ -29,15 +29,23 @@ public class SpeedComparison {
     @Test
     public void testSpeedWithCustomNumbersAndBound() {
         double divider = 1000, startTime, endTime;
-        int[] array1 = createArray(50000, 25000);
-        int[] array2 = array1.clone();
-        int[] array3 = array1.clone();
-        int[] array4 = array1.clone();
+        Integer[] array1 = createArray(10_000_000, 2_500_000);
+        //Integer[] array3 = array1.clone();
+        //int[] array2 = array1.clone();
+        //int[] array4 = array1.clone();
+
+
+        QuickSort quickSort = new QuickSort();
+        startTime = System.currentTimeMillis();
+        quickSort.sort(array1);
+        endTime = System.currentTimeMillis();
+        System.out.printf("QuickSort: %.3fs | isSorted = %s\n", (endTime - startTime) / divider, isSorted(array1));
 
         startTime = System.currentTimeMillis();
-        Mergesort.sort(array3);
+        MergeSort.sort(array1);
         endTime = System.currentTimeMillis();
-        System.out.printf("MergeSort: %.3fs | isSorted = %s\n", (endTime - startTime) / divider, isSorted(array3));
+        System.out.printf("MergeSort: %.3fs | isSorted = %s\n", (endTime - startTime) / divider, isSorted(array1));
+        /**
 
         startTime = System.currentTimeMillis();
         InsertionSort.sort(array1);
@@ -53,5 +61,6 @@ public class SpeedComparison {
         BubbleSort.sort(array4);
         endTime = System.currentTimeMillis();
         System.out.printf("BubbleSort: %.3fs | isSorted = %s\n", (endTime - startTime) / divider, isSorted(array4));
-    }
+    */
+         }
 }

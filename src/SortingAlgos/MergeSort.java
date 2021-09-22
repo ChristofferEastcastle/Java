@@ -1,12 +1,12 @@
 package SortingAlgos;
 
-public class Mergesort {
+public class MergeSort {
 
-    public static void sort(int[] array){
+    public static <T extends Comparable<T>> void sort(T[] array){
         sort(array, 0, array.length - 1);
     }
 
-    private static void sort(int[] array, int left, int right) {
+    private static <T extends Comparable<T>> void sort(T[] array, int left, int right) {
         if (left < right) {
 
             int mid = left + (right - left) / 2;
@@ -18,15 +18,15 @@ public class Mergesort {
         }
     }
 
-    private static void merge(int[] array, int left, int mid, int right) {
+    private static <T extends Comparable<T>> void merge(T[] array, int left, int mid, int right) {
 
         int n1 = mid - left + 1;
         int n2 = right - mid;
 
-        int[] L = new int[n1];
-        int[] R = new int[n2];
+        T[] L = (T[]) new Comparable[n1];
+        T[] R = (T[]) new Comparable[n2];
 
-        for (int i = 0; i < n1; ++i) L[i] = array[left + i];
+        System.arraycopy(array, left, L, 0, n1);
 
         for (int j = 0; j < n2; ++j) R[j] = array[mid + 1 + j];
 
@@ -36,7 +36,7 @@ public class Mergesort {
         k = left;
 
         while (i < n1 && j < n2) {
-            if (L[i] < R[j]) {
+            if (L[i].compareTo(R[j]) < 0) {
                 array[k] = L[i];
                 i++;
             } else {
