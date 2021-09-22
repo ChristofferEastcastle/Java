@@ -1,6 +1,7 @@
 package SortingAlgos;
 
-import org.junit.Test;
+
+import org.testng.annotations.Test;
 
 import java.util.Random;
 
@@ -42,7 +43,7 @@ public class SpeedComparison {
         System.out.printf("QuickSort: %.3fs | isSorted = %s\n", (endTime - startTime) / divider, isSorted(array1));
 
         startTime = System.currentTimeMillis();
-        MergeSort.sort(array1);
+        Mergesort.sort(array1);
         endTime = System.currentTimeMillis();
         System.out.printf("MergeSort: %.3fs | isSorted = %s\n", (endTime - startTime) / divider, isSorted(array1));
         /**
